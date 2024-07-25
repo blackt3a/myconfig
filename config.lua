@@ -12,8 +12,8 @@ vim.keymap.set("i","jk","<ESC>")
 
 
 --多行移动
-vim.keymap.set("v","J",":m '>+1<CR>gv=gv")
-vim.keymap.set("v","K",":m '<-2<CR>gv=gv")
+--vim.keymap.set("v","J",":m '>+1<CR>gv=gv")
+--vim.keymap.set("v","K",":m '<-2<CR>gv=gv")
 
 
 --窗口
@@ -23,11 +23,11 @@ vim.keymap.set("n","<leader>sh","<C-w>s") --垂直方向
 vim.keymap.set("n","<C-K>","<C-V>")
 
 
-
-
+--主题
+lvim.colorscheme = 'desert'
 
 --取消高亮
-vim.keymap.set("n","<leader>nh",":nohl<CR>")
+--vim.keymap.set("n","<leader>nh",":nohl<CR>")
 
 
 vim.opt.clipboard = "unnamedplus"
@@ -54,7 +54,6 @@ vim.g.clipboard = {
 }
 
 
-
 --jk自动保存
 vim.api.nvim_create_autocmd({ "InsertLeave" }, {
           callback = function()
@@ -68,3 +67,18 @@ vim.api.nvim_create_autocmd({ "InsertLeave" }, {
 --注释掉 ctrl v 那行
 
 --// { "command": "paste", "keys": "ctrl+v" },
+
+
+
+
+--复制的一些官方配置模板
+vim.opt.cmdheight = 2 -- more space in the neovim command line for displaying messages
+vim.opt.guifont = "monospace:h17" -- the font used in graphical neovim applications
+vim.opt.shiftwidth = 4 -- the number of spaces inserted for each indentation
+vim.opt.tabstop = 4 -- insert 2 spaces for a tab
+vim.opt.relativenumber = true -- relative line numbers
+vim.opt.wrap = true -- wrap lines
+
+-- use treesitter folding
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
