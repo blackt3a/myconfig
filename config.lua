@@ -20,7 +20,7 @@ vim.keymap.set("i","jk","<ESC>")
 --
 vim.keymap.set("n","<leader>sv","<C-w>v") --水平方向
 vim.keymap.set("n","<leader>sh","<C-w>s") --垂直方向
-vim.keymap.set("n","<C-K>","<C-V>")
+--vim.keymap.set("n","<C-K>","<C-V>")
 
 
 --主题
@@ -30,7 +30,6 @@ lvim.colorscheme = 'desert'
 --vim.keymap.set("n","<leader>nh",":nohl<CR>")
 
 
-vim.opt.clipboard = "unnamedplus"
 vim.opt.signcolumn = "yes"
 
 vim.ignorecase = true
@@ -41,7 +40,12 @@ vim.opt.mouse:append("a")
 
 
 --复制vim到win
-vim.g.clipboard = {
+vim.opt.clipboard = "unnamedplus"
+
+
+
+--以下是官方的的配置，但是本地复制时会有个10秒 的延迟，很难受
+--[[ vim.g.clipboard = {
   name = 'OSC 52',
   copy = {
     ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
@@ -51,7 +55,37 @@ vim.g.clipboard = {
     ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
     ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
   },
-}
+} ]]
+
+
+
+
+
+vim.api.nvim_create_autocmd('TextYankPost', {
+    callback = function()
+        vim.highlight.on_yank()
+        local copy_to_unnamedplus = require('vim.ui.clipboard.osc52').copy('+')
+        copy_to_unnamedplus(vim.v.event.regcontents)
+        local copy_to_unnamed = require('vim.ui.clipboard.osc52').copy('*')
+        copy_to_unnamed(vim.v.event.regcontents)
+    end
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 --jk自动保存
