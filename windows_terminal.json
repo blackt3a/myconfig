@@ -1,8 +1,59 @@
-{
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
     "actions": 
     [
+        {
+            "command": "unbound",
+            "keys": "alt+up"
+        },
+        {
+            "command": "unbound",
+            "keys": "alt+down"
+        },
+        {
+            "command": "unbound",
+            "keys": "alt+right"
+        },
+        {
+            "command": "unbound",
+            "keys": "alt+left"
+        },
         {
             "command": 
             {
@@ -23,6 +74,38 @@
         {
             "command": "find",
             "keys": "ctrl+shift+f"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "up"
+            },
+            "keys": "ctrl+k"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "down"
+            },
+            "keys": "ctrl+j"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "left"
+            },
+            "keys": "ctrl+h"
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "right"
+            },
+            "keys": "ctrl+l"
         }
     ],
     "copyFormatting": "none",
@@ -36,7 +119,13 @@
     ],
     "profiles": 
     {
-        "defaults": {},
+        "defaults": 
+        {
+            "font": 
+            {
+                "face": "Agave Nerd Font Propo"
+            }
+        },
         "list": 
         [
             {
@@ -52,31 +141,45 @@
                 "name": "\u547d\u4ee4\u63d0\u793a\u7b26"
             },
             {
-                "adjustIndistinguishableColors": "always",
-                "backgroundImage": null,
-                "bellStyle": "none",
                 "colorScheme": "One Half Dark",
-                "elevate": true,
-                "experimental.retroTerminalEffect": false,
                 "font": 
                 {
-                    "face": "3270 Nerd Font Mono",
-                    "size": 16.0
+                    "face": "0xProto Nerd Font Mono"
                 },
                 "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
                 "hidden": false,
-                "icon": "C:\\Users\\16641\\Pictures\\Saved Pictures\\74431801.jpg",
-                "intenseTextStyle": "none",
                 "name": "PowerShell",
-                "opacity": 100,
-                "source": "Windows.Terminal.PowershellCore",
-                "useAcrylic": true
+                "source": "Windows.Terminal.PowershellCore"
             },
             {
                 "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
                 "hidden": false,
                 "name": "Azure Cloud Shell",
                 "source": "Windows.Terminal.Azure"
+            },
+            {
+                "guid": "{2b018091-91be-5880-986f-6e167d5e1361}",
+                "hidden": false,
+                "name": "Developer Command Prompt for VS 2022",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{1c774465-b4b6-5be6-9286-825f0f7cccc9}",
+                "hidden": false,
+                "name": "Developer PowerShell for VS 2022",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{45e948e9-deda-5c6d-8572-c7a2b4b3800e}",
+                "hidden": false,
+                "name": "Developer Command Prompt for VS 2022 (2)",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{42741e50-1a98-5211-bbd1-57cbc6ba0492}",
+                "hidden": false,
+                "name": "Developer PowerShell for VS 2022 (2)",
+                "source": "Windows.Terminal.VisualStudio"
             }
         ]
     },
@@ -290,5 +393,8 @@
             "yellow": "#808000"
         }
     ],
-    "themes": []
+    "showTabsInTitlebar": true,
+    "startOnUserLogin": true,
+    "themes": [],
+    "useAcrylicInTabRow": true
 }
